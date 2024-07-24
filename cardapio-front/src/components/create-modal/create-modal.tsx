@@ -50,9 +50,9 @@ export function CreateModal({ closeModal }: ModalProps){
             <div className="modal-body">
                 <h2>Cadastre um novo item no cardápio</h2>
                 <form className="input-container">
-                    <Input label="title" value={title} updateValue={setTitle}/>
-                    <Input label="price" value={price} updateValue={setPrice}/>
-                    <Input label="image" value={image} updateValue={setImage}/>
+                    <Input label="Título" value={title} updateValue={setTitle}/>
+                    <Input label="Valor" value={price} updateValue={setPrice}/>
+                    <Input label="Imagem" value={image} updateValue={setImage}/>
                 </form>
                 <button onClick={submit} className="btn-secondary">
                     {isPending ? 'postando...' : 'postado'}

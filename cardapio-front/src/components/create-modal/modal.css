@@ -11,6 +11,8 @@
     justify-content: center;
 
     z-index: 999;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .modal-overlay .modal-body {
@@ -28,6 +30,7 @@
 
 .modal-overlay .modal-body h2 {
     font-size: 32px;
+    color: #242424;
 }
 
 .modal-overlay .modal-body .input-container {
@@ -37,7 +40,7 @@
 .modal-overlay .modal-body input {
     padding: 12px;
     border: 2px solid #c6c5c5c5;
-    color: rgba(0,0,0,0.9);
+    color: rgba(255, 255, 255, 0.9);
     font-size: 18px;
     line-height: 24px;
     border-radius: 12px;
