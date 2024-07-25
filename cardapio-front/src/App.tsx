@@ -6,11 +6,28 @@ import { useFoodData } from './hooks/useFoodData';
 import { CreateModal } from './components/create-modal/create-modal';
 
 function App() {
-  const { data } = useFoodData();
+  const { data, setData } = useFoodData();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => {
     setIsModalOpen(prev => !prev)
+  }
+
+  const deleteFood = async (id: number) => {
+    try {
+      console.log(`Deleting food item with id: ${id}`);
+      const response = await fetch(`http://localhost:8080/foods/${id}`, {method: 'DELETE',
+      });
+      console.log('Response status:', response.status);
+      if (response.ok){
+        console.log('Food item deleted successfully');
+        setData(prevData => prevData?.filter(food => food.id !== id));
+      } else {
+        console.error('Failed to delete food item');
+      }
+    } catch (error) {
+      console.error('Error deleting food item', error)
+    }
   }
 
   return (
@@ -18,10 +35,13 @@ function App() {
       <h1>Cardápio</h1>
       <div className='card-grid'>
         {data?.map(foodData => 
-          <Card 
+          <Card
+            key={foodData.id}
+            id={foodData.id} 
             price={foodData.price} 
             title={foodData.title} 
             image={foodData.image}
+            onDelete={deleteFood}
           />
         )}
       </div>

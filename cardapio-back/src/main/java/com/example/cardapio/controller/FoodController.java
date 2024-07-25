@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("food")
+@CrossOrigin(origins = "http://localhost:5173")
 public class FoodController {
 
     @Autowired
@@ -32,6 +33,7 @@ public class FoodController {
         return foodList;
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteFood(@PathVariable Long id) {
         foodService.deleteFood(id);

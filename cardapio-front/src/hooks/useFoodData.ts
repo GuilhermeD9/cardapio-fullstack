@@ -1,6 +1,7 @@
 import axios, { AxiosPromise } from "axios"
 import { FoodData } from "../interface/FoodData";
 import { useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
 
 const API_URL = 'http://localhost:8080'
 
@@ -16,8 +17,17 @@ export function useFoodData(){
         retry: 2
     })
 
+    const [data, setData] = useState<FoodData[] | undefined>(query.data?.data);
+
+    useEffect(() => {
+        if (query.data?.data) {
+            setData(query.data.data)
+        }
+    }, [query.data]);
+
     return {
         ...query,
-        data: query.data?.data
-    }
+        data,
+        setData
+    };
 }
