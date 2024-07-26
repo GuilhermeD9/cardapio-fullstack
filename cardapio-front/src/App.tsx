@@ -16,7 +16,7 @@ function App() {
   const deleteFood = async (id: number) => {
     try {
       console.log(`Deleting food item with id: ${id}`);
-      const response = await fetch(`http://localhost:8080/foods/${id}`, {method: 'DELETE',
+      const response = await fetch(`http://localhost:8080/food/${id}`, {method: 'DELETE',
       });
       console.log('Response status:', response.status);
       if (response.ok){

@@ -15,7 +15,7 @@ export const Card: React.FC<CardProps> = ({ price, title, image, id, onDelete}) 
             <img src={image}/>
             <h2>{title}</h2>
             <p><b>Valor: R$</b>{price}</p>
-            <button onClick={() => onDelete(id)}>Excluir</button>
+            <button onClick={() => onDelete(id)}>Deletar</button>
         </div>
     )
 }
