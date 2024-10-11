@@ -28,7 +28,6 @@ public class FoodController {
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping
     public List<FoodResponseDTO> getAll(){
-
         List<FoodResponseDTO> foodList = repository.findAll().stream().map(FoodResponseDTO::new).toList();
         return foodList;
     }
@@ -36,7 +35,7 @@ public class FoodController {
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteFood(@PathVariable Long id) {
-        foodService.deleteFood(id);
+        repository.deleteById(id);
         return ResponseEntity.noContent().build();
     }
 }

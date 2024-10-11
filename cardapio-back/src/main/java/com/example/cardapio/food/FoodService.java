@@ -8,7 +8,4 @@ public class FoodService {
     @Autowired
     private FoodRepository foodRepository;
 
-    public void deleteFood(Long id) {
-        foodRepository.deleteById(id);
-    }
 }
